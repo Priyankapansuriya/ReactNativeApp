@@ -37,7 +37,7 @@ const submit = () => {
       [
         { text: "OK", onPress: () => console.log("OK Pressed") }
       ])
-      navigation.navigate("Home");
+      navigation.navigate("Index");
     }
   }
 
