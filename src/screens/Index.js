@@ -5,7 +5,7 @@ import { useFonts,WorkSans_400Regular } from '@expo-google-fonts/work-sans'
 import AppLoading from "expo-app-loading"
 import Menu from '../component/Menu'
 
-const Index = () => {
+const Index = (props) => {
     let [fontsLoaded] = useFonts({
         Nunito_700Bold,
         WorkSans_400Regular,

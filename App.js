@@ -6,7 +6,7 @@ import About from './src/screens/About';
 import Contact from './src/screens/Contact';
 import Course from './src/screens/Course';
 import UserData from './src/screens/UserData';
-import Index from './src/screens';
+import Index from './src/screens/Index'
 
 
 const App = () => {
