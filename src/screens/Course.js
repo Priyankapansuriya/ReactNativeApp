@@ -30,7 +30,9 @@ const courseCard = ({item}) => {
       <Text style={styles.description}>{item.description}</Text>
        <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.buttonStyle}
-         onPress = {() => navigation.navigate("CourseDetails")}
+         onPress = {() => navigation.navigate("CourseDetails", {
+                  courseId: item.id,
+                })}
         >
           <Text style={styles.buttonText}>Course Details</Text>
         </TouchableOpacity>

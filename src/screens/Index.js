@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View,Image } from 'react-native'
 import React from 'react'
-import { Nunito_700Bold } from '@expo-google-fonts/nunito'
-import { useFonts,WorkSans_400Regular } from '@expo-google-fonts/work-sans'
-import AppLoading from "expo-app-loading"
-import Menu from '../component/Menu'
+import Menu from '../component/Menu';
+import { WorkSans_400Regular } from '@expo-google-fonts/work-sans';
+import { Nunito_700Bold } from '@expo-google-fonts/nunito';
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
 const Index = (props) => {
     let [fontsLoaded] = useFonts({
@@ -94,6 +95,5 @@ const Index = (props) => {
         borderColor: "grey",
       },
     })
-    
 export default Index
 
