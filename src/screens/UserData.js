@@ -1,7 +1,7 @@
 import { FlatList, StyleSheet, Text, View, Image } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { Nunito_700Bold } from '@expo-google-fonts/nunito'
-import { useFonts,WorkSans_400Regular } from '@expo-google-fonts/work-sans'
+import { useFonts, WorkSans_400Regular } from '@expo-google-fonts/work-sans'
 import AppLoading from 'expo-app-loading'
 
 const UserData = () => {
@@ -11,59 +11,59 @@ const UserData = () => {
     WorkSans_400Regular,
   })
 
-  if(!fontsLoaded) {
+  if (!fontsLoaded) {
     <AppLoading />
-  }  
+  }
 
-const [isLoaded , setIsLoaded] = useState(true);
-const[myData, setMyData] = useState([]);  
+  const [isLoaded, setIsLoaded] = useState(true);
+  const [myData, setMyData] = useState([]);
 
-const getUserData = async () => {
- try {
-  const reasponse = await fetch(
-    "https://thapatechnical.github.io/userapi/users.json"
+  const getUserData = async () => {
+    try {
+      const reasponse = await fetch(
+        "https://thapatechnical.github.io/userapi/users.json"
+      )
+      const realData = await reasponse.json()
+      setMyData(realData);
+      setIsLoaded(false);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => getUserData(), []);
+
+  const showUserData = ({ item }) => {
+    return (
+      <View style={styles.card}>
+        <View style={styles.imgContainer}>
+          <Image style={styles.imgStyle}
+            source={{ uri: item.image }}
+          />
+        </View>
+        <View>
+          <View style={styles.bioDataContainer}>
+            <Text style={styles.bioData}>Bio-Data</Text>
+            <Text style={styles.idNumber}> {item.id < 10 ? `#0${item.id}` : `#{item.id}`}</Text>
+          </View>
+          <View style={styles.mainContain}>
+            <Text style={styles.myName}> Name:{item.name}</Text>
+            <Text style={styles.myName}> Email:{item.email}</Text>
+            <Text style={styles.myName}> Mobile:{item.mobile}</Text>
+          </View>
+        </View>
+      </View>
     )
- const realData = await reasponse.json()
-  setMyData(realData);
-  setIsLoaded(false);
-} catch (error) {
-  console.log(error);
-}
-}
- 
-useEffect(() => getUserData(),[]); 
-
-const showUserData = ({item}) => {
-  return (
-  <View style={styles.card}>
-   <View style={styles.imgContainer}>
-    <Image style={styles.imgStyle}
-      source = { {uri:item.image} }
-    />
-   </View>
-   <View>
-    <View style={styles.bioDataContainer}>
-      <Text style={styles.bioData}>Bio-Data</Text>
-      <Text style={styles.idNumber}> {item.id < 10 ? `#0${item.id}` : `#{item.id}`}</Text>
-    </View>
-    <View style={styles.mainContain}>
-     <Text style={styles.myName}> Name:{item.name}</Text>
-     <Text style={styles.myName}> Email:{item.email}</Text>
-     <Text style={styles.myName}> Mobile:{item.mobile}</Text>
-    </View>
-   </View>
-  </View>
-  )
-};
+  };
   return (
     <View>
       <Text style={styles.mainHeader}>List of User</Text>
-      <FlatList 
+      <FlatList
         keyExtractor={(item) => item.id}
-        data={myData }
+        data={myData}
         renderItem={showUserData}
         horizontal
-        showsHorizontalScrollIndicator= {false}
+        showsHorizontalScrollIndicator={false}
       />
     </View>
   )

@@ -1,4 +1,4 @@
-import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View ,Button} from 'react-native'
+import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View, Button } from 'react-native'
 import React, { useState } from 'react'
 import { WorkSans_400Regular } from '@expo-google-fonts/work-sans'
 import { Nunito_700Bold } from '@expo-google-fonts/nunito'
@@ -6,37 +6,37 @@ import AppLoading from 'expo-app-loading'
 import { useFonts } from '@expo-google-fonts/work-sans'
 import Checkbox from 'expo-checkbox';
 
-const Contact = ({navigation}) => {
+const Contact = ({ navigation }) => {
 
-let [fontsLoaded] = useFonts({
-  Nunito_700Bold ,
-  WorkSans_400Regular 
-})
-if (!fontsLoaded) {
-  <AppLoading />
-}
+  let [fontsLoaded] = useFonts({
+    Nunito_700Bold,
+    WorkSans_400Regular
+  })
+  if (!fontsLoaded) {
+    <AppLoading />
+  }
 
-const [name , setName] = useState("");
-const [email , setEmail] = useState("");
-const [num , setNum] = useState("");
-const [msg , setMsg] = useState("");
-const [agree , setAgree] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [num, setNum] = useState("");
+  const [msg, setMsg] = useState("");
+  const [agree, setAgree] = useState(false);
 
-const submit = () => {
-  if (!name && !email && !num && !msg) {
-    Alert.alert("Invalid Input","Plzz fill all the fields",
-    [
-      {
-        text: "Cancel",
-        onPress: () => console.log("Cancel Pressed"),
-        style: "cancel"
-      }
-    ])
+  const submit = () => {
+    if (!name && !email && !num && !msg) {
+      Alert.alert("Invalid Input", "Plzz fill all the fields",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log("Cancel Pressed"),
+            style: "cancel"
+          }
+        ])
     } else {
-      Alert.alert("Yehh",`Thank You ${name}`,
-      [
-        { text: "OK", onPress: () => console.log("OK Pressed") }
-      ])
+      Alert.alert("Yehh", `Thank You ${name}`,
+        [
+          { text: "OK", onPress: () => console.log("OK Pressed") }
+        ])
       navigation.navigate("Index");
     }
   }
@@ -51,7 +51,7 @@ const submit = () => {
         <TextInput style={styles.inputStyle}
           placeholder={"Steve"}
           value={name}
-          onChangeText={(userData)=>setName(userData)}
+          onChangeText={(userData) => setName(userData)}
         />
       </View>
 
@@ -60,7 +60,7 @@ const submit = () => {
         <TextInput style={styles.inputStyle}
           placeholder={"demo@gmail.com"}
           value={email}
-          onChangeText={(email)=> setEmail(email)}
+          onChangeText={(email) => setEmail(email)}
         />
       </View>
 
@@ -69,38 +69,38 @@ const submit = () => {
         <TextInput style={styles.inputStyle}
           placeholder={"12345"}
           value={num}
-          onChangeText={(num)=>setNum(num)}
+          onChangeText={(num) => setNum(num)}
         />
       </View>
 
       <View style={styles.inputContainer}>
         <Text style={styles.labels}> Enter Your Message</Text>
-        <TextInput style={[styles.inputStyle,styles.multiineStyle]}
-          placeholder={"About You"} 
+        <TextInput style={[styles.inputStyle, styles.multiineStyle]}
+          placeholder={"About You"}
           value={msg}
-          onChangeText={(msg)=>setMsg(msg)}
+          onChangeText={(msg) => setMsg(msg)}
           numberOfLines={5}
           multiline={true}
         />
       </View>
-    
-    <View style={styles.wrapper}>
-      <Checkbox 
-        value={agree}
-        onValueChange={()=> setAgree(!agree)}
-        color={agree ? "#4630EB" : undefined}
-      />
-      <Text style={styles.wrapperText}>I have read and agreed with TC</Text>
-    </View>
 
-    <TouchableOpacity style={[styles.buttonStyle,
-    {backgroundColor: agree ? "#4630EB" : "grey"} 
-    ]}
-    disabled={!agree}
-    onPress={submit}
-    >
-      <Text style={styles.buttonText}>Contact Us</Text>
-    </TouchableOpacity>
+      <View style={styles.wrapper}>
+        <Checkbox
+          value={agree}
+          onValueChange={() => setAgree(!agree)}
+          color={agree ? "#4630EB" : undefined}
+        />
+        <Text style={styles.wrapperText}>I have read and agreed with TC</Text>
+      </View>
+
+      <TouchableOpacity style={[styles.buttonStyle,
+      { backgroundColor: agree ? "#4630EB" : "grey" }
+      ]}
+        disabled={!agree}
+        onPress={submit}
+      >
+        <Text style={styles.buttonText}>Contact Us</Text>
+      </TouchableOpacity>
     </View>
   )
 }

@@ -1,48 +1,49 @@
 import React from 'react'
-import { FlatList, StyleSheet, Text, View,Image, TouchableOpacity } from 'react-native'
+import { FlatList, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import Courses from '../api/Courseapi'
 import { Nunito_700Bold } from '@expo-google-fonts/nunito'
-import { useFonts,WorkSans_400Regular } from '@expo-google-fonts/work-sans'
+import { useFonts, WorkSans_400Regular } from '@expo-google-fonts/work-sans'
 import AppLoading from 'expo-app-loading'
 
-const Course = ({navigation}) => {
+const Course = ({ navigation }) => {
 
   let [fontsLoaded] = useFonts({
     Nunito_700Bold,
     WorkSans_400Regular,
   })
 
-  if(!fontsLoaded) {
+  if (!fontsLoaded) {
     <AppLoading />
   }
 
-const courseCard = ({item}) => {
-  return (
-  <View style={styles.mainContainer}>
-    <View style={styles.courseContainer}>
-      <View>
-        <Image style={styles.cardImage}
-          source={item.image}
-          resizeMode="contain"
-        />
+  const courseCard = ({ item }) => {
+    return (
+      <View style={styles.mainContainer}>
+        <View style={styles.courseContainer}>
+          <View>
+            <Image style={styles.cardImage}
+              source={item.image}
+              resizeMode="contain"
+            />
+          </View>
+          <Text style={styles.mainHeader}>{item.title}</Text>
+          <Text style={styles.description}>{item.description}</Text>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.buttonStyle}
+              onPress={() => navigation.navigate("CourseDetails", {
+                courseId: item.id,
+              })}
+            >
+              <Text style={styles.buttonText}>Course Details</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
-      <Text style={styles.mainHeader}>{item.title}</Text>
-      <Text style={styles.description}>{item.description}</Text>
-       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.buttonStyle}
-         onPress = {() => navigation.navigate("CourseDetails", {
-                  courseId: item.id,
-                })}
-        >
-          <Text style={styles.buttonText}>Course Details</Text>
-        </TouchableOpacity>
-       </View>
-    </View>
-  </View>
-)}   
+    )
+  }
   return (
     <View>
-      <FlatList keyExtractor={(item)=> item.id}
+      <FlatList keyExtractor={(item) => item.id}
         data={Courses}
         renderItem={courseCard}
       />

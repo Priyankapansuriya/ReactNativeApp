@@ -12,57 +12,57 @@ import CourseDetails from './src/screens/CourseDetails';
 
 const App = () => {
 
-  const Stack = createNativeStackNavigator();  
+  const Stack = createNativeStackNavigator();
 
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Index'>
         <Stack.Screen name='Index' options={{
-          headerShown:false,
+          headerShown: false,
         }}>
-          {(props)=> <Index {...props} channelName={"E-Learning"}/>}
+          {(props) => <Index {...props} channelName={"E-Learning"} />}
         </Stack.Screen>
-        <Stack.Screen name="About" component={About} 
+        <Stack.Screen name="About" component={About}
           options={{
-          headerTitleStyle:{
-            fontSize:25,
-          },
-          headerTitleAlign:"center",
-        }} 
+            headerTitleStyle: {
+              fontSize: 25,
+            },
+            headerTitleAlign: "center",
+          }}
         />
-        <Stack.Screen name="Contact" component={Contact} 
+        <Stack.Screen name="Contact" component={Contact}
           options={{
-          headerTitleStyle:{
-            fontSize:25,
-          },
-          headerTitleAlign:"center",
-        }} 
+            headerTitleStyle: {
+              fontSize: 25,
+            },
+            headerTitleAlign: "center",
+          }}
         />
         <Stack.Screen name="Course" component={Course}
-        options={{
-          headerTitleStyle:{
-            fontSize:25,
-          },
-          headerTitle:"Courses",
-          headerTitleAlign:"center",
-        }} />
-        <Stack.Screen name="User" component={UserData} 
           options={{
-          headerTitleStyle:{
-            fontSize:25,
-          },
-          headerTitle:"User Data",
-          headerTitleAlign:"center",
-        }} 
+            headerTitleStyle: {
+              fontSize: 25,
+            },
+            headerTitle: "Courses",
+            headerTitleAlign: "center",
+          }} />
+        <Stack.Screen name="User" component={UserData}
+          options={{
+            headerTitleStyle: {
+              fontSize: 25,
+            },
+            headerTitle: "User Data",
+            headerTitleAlign: "center",
+          }}
         />
-        <Stack.Screen name="CourseDetails" component={CourseDetails} 
+        <Stack.Screen name="CourseDetails" component={CourseDetails}
           options={{
-          headerTitleStyle:{
-            fontSize:25,
-          },
-          headerTitle:"Course Details",
-          headerTitleAlign:"center",
-        }} 
+            headerTitleStyle: {
+              fontSize: 25,
+            },
+            headerTitle: "Course Details",
+            headerTitleAlign: "center",
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

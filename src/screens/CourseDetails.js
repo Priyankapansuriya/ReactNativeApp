@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View,Image,TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react';
 import Courses from "../api/Courseapi";
-import { useFonts,WorkSans_400Regular } from '@expo-google-fonts/work-sans';
+import { useFonts, WorkSans_400Regular } from '@expo-google-fonts/work-sans';
 import { Nunito_700Bold } from '@expo-google-fonts/nunito';
 import AppLoading from 'expo-app-loading';
 
-const CourseDetails = ({navigation, route}) => {
+const CourseDetails = ({ navigation, route }) => {
   let [fontsLoaded] = useFonts({
     WorkSans_400Regular,
     Nunito_700Bold,

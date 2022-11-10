@@ -1,4 +1,4 @@
-import { Linking, StyleSheet, Text, TouchableOpacity, View,Image } from 'react-native'
+import { Linking, StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native'
 import React from 'react'
 import { Nunito_700Bold } from '@expo-google-fonts/nunito'
 import { WorkSans_400Regular } from '@expo-google-fonts/work-sans'
@@ -7,76 +7,76 @@ import AppLoading from 'expo-app-loading'
 
 const About = () => {
 
-let [fontsLoaded] = useFonts({
-  Nunito_700Bold ,
-  WorkSans_400Regular
-}) 
+  let [fontsLoaded] = useFonts({
+    Nunito_700Bold,
+    WorkSans_400Regular
+  })
 
-if (!fontsLoaded) {
-  <AppLoading />
-}
+  if (!fontsLoaded) {
+    <AppLoading />
+  }
   return (
     <View style={styles.aboutContainer}>
       <Text style={styles.mainHeader}>Steve Brown</Text>
       <Text style={[styles.paraStyle, styles.aboutPara]}>Developer</Text>
-    <View>
-      <Image 
-        style={styles.imgStyle}
-        source={{
-          uri:"https://wallpapercave.com/wp/wp9683114.jpg"
-        }}
-      />
-    </View>
-    <View style={styles.aboutLayout}>
-      <Text style={styles.aboutSubHeader}>About Me</Text>
-      <Text style={styles.aboutPara}>
-      Software developers design, program, build, deploy and maintain software using many different skills and tools.
-      They also help build software systems that power networks and devices and ensure that those systems remain functional.
-      </Text>
-    </View>
-    <Text style={styles.mainHeader}>Follow me on social networks</Text>
-    
-    <View style={styles.menuContainer}>
-      <TouchableOpacity 
-      style={styles.buttonStyle}
-      onPress={() => Linking.openURL("https://www.instagram.com/")}
-      >
+      <View>
         <Image
-          style={styles.iconStyle}
-          source={{uri:"https://cdn-icons-png.flaticon.com/128/3955/3955024.png"}}
-          resizeMode='contain'
-         />
-      </TouchableOpacity>
-      
-      <TouchableOpacity 
-      style={styles.buttonStyle}
-      onPress={() => Linking.openURL("https://www.linkedin.com/")}
-      >
-        <Image
-          style={styles.iconStyle}
-          source={{uri:"https://cdn-icons-png.flaticon.com/128/145/145807.png"}}
-         />
-      </TouchableOpacity>
-      
-      <TouchableOpacity 
-      style={styles.buttonStyle}
-      onPress={() => Linking.openURL("https://github.com/")}
-      >
-        <Image
-          style={styles.iconStyle}
-          source={{uri:"https://cdn-icons-png.flaticon.com/128/270/270798.png"}}
-         />
-      </TouchableOpacity>
-      <TouchableOpacity 
-      style={styles.buttonStyle}
-      onPress={() => Linking.openURL("https://web.skype.com/")}
-      >
-        <Image
-          style={styles.iconStyle}
-          source={{uri:"https://cdn-icons-png.flaticon.com/128/174/174869.png"}}
-         />
-      </TouchableOpacity>
-    </View>
+          style={styles.imgStyle}
+          source={{
+            uri: "https://wallpapercave.com/wp/wp9683114.jpg"
+          }}
+        />
+      </View>
+      <View style={styles.aboutLayout}>
+        <Text style={styles.aboutSubHeader}>About Me</Text>
+        <Text style={styles.aboutPara}>
+          Software developers design, program, build, deploy and maintain software using many different skills and tools.
+          They also help build software systems that power networks and devices and ensure that those systems remain functional.
+        </Text>
+      </View>
+      <Text style={styles.mainHeader}>Follow me on social networks</Text>
+
+      <View style={styles.menuContainer}>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={() => Linking.openURL("https://www.instagram.com/")}
+        >
+          <Image
+            style={styles.iconStyle}
+            source={{ uri: "https://cdn-icons-png.flaticon.com/128/3955/3955024.png" }}
+            resizeMode='contain'
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={() => Linking.openURL("https://www.linkedin.com/")}
+        >
+          <Image
+            style={styles.iconStyle}
+            source={{ uri: "https://cdn-icons-png.flaticon.com/128/145/145807.png" }}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={() => Linking.openURL("https://github.com/")}
+        >
+          <Image
+            style={styles.iconStyle}
+            source={{ uri: "https://cdn-icons-png.flaticon.com/128/270/270798.png" }}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          onPress={() => Linking.openURL("https://web.skype.com/")}
+        >
+          <Image
+            style={styles.iconStyle}
+            source={{ uri: "https://cdn-icons-png.flaticon.com/128/174/174869.png" }}
+          />
+        </TouchableOpacity>
+      </View>
     </View>
   )
 }
@@ -101,8 +101,8 @@ const styles = StyleSheet.create({
     marginTop: 50,
     marginBottom: 10,
     fontFamily: "Nunito_700Bold",
-    justifyContent:"center",
-    display:"flex"
+    justifyContent: "center",
+    display: "flex"
   },
   paraStyle: {
     fontSize: 18,
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 50,
     aspectRatio: 1,
-    marginTop:40
+    marginTop: 40
   },
 })
 
